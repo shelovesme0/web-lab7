@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Варіант 11 – Phone</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <!-- Блок 1 -->
+  <header class="block block1">
+    <h2>Porsche 918</h2>
+    <p>Porsche is love</p>
+  </header>
+
+  <!-- Блок 2 -->
+  <aside class="block block2">
+    <h3>Menu</h3>
+    <ul>
+      <li><a href="#">Email</a></li>
+    </ul>
+  </aside>
+
+  <!-- Блок 3 – тут таблиця з подіями -->
+  <section class="block block3">
+    <h3>Події анімації (порівняння збереження)</h3>
+    <div id="logTableContainer">
+      <p>Після запуску анімації та натискання кнопки <strong>close</strong> тут з’явиться таблиця
+        з даними з сервера (миттєва відправка) та з LocalStorage.</p>
+    </div>
+  </section>
+
+  <!-- Блок 4 -->
+  <div class="block block4">
+    <h3>Key Characteristics</h3>
+    <ol>
+      <li>High-Performance Sports Cars: Porsche is synonymous with sports cars, producing vehicles renowned for their power, speed, and handling.</li>
+      <li>Luxury and Prestige: The brand represents modern luxury, prestige, and high-end automotive design.</li>
+      <li>Innovation and Engineering: Porsche is celebrated for its engineering prowess, including innovations in flat-four engines, all-wheel-drive systems, and suspension technology.</li>
+      <li>Racing Legacy: The brand has a deep and successful history in motorsport, with iconic race cars and a significant influence on the automotive world.</li>
+      <li>Iconic Models: The Porsche 911 is one of its most famous and enduring models, known for its unique silhouette and continuous evolution.</li>
+    </ol>
+
+    <!-- Кнопка запуску робочого поля -->
+    <button id="playButton" class="control-btn primary">
+      play
+    </button>
+  </div>
+
+  <!-- Блок 5 – основний контент + робоче поле -->
+  <main class="block block5">
+
+    <!-- Звичайний контент блоку 5, який ховаємо під час анімації -->
+    <div id="block5Content">
+      <p>
+        The Porsche 918 Spyder is a high performance sports car manufactured by German marque Porsche. The 918 Spyder is a plug-in hybrid powered by a mid-mounted naturally aspirated 4.6 L (4,593 cc) V8 engine, developing 447 kW (608 PS; 599 hp) at 8,700 RPM, with two electric motors delivering an additional 210 kW (286 PS; 282 hp) for a combined output of 652 kW (875 hp) and 1,280 N⋅m (944 lbf⋅ft) of torque. The 918 Spyder's 6.8 kWh lithium-ion battery pack delivers an all-electric range of 19 km (12 mi) under the US Environmental Protection Agency's five-cycle tests.
+      </p>
+      <img src="porsche918.jpg" alt="Porsche 918" usemap="#porschemap">
+      <map name="porschemap">
+        <area shape="rect"
+              coords="0,0,675,450"
+              target="_blank"
+              alt="Porsche 918"
+              href="https://uk.wikipedia.org/wiki/Porsche_918">
+      </map>
+    </div>
+
+    <!-- Робоче поле work (спочатку сховане) -->
+    <div id="work" class="work hidden">
+      <!-- Частина controls -->
+      <div class="controls">
+        <div class="controls-left">
+          <button id="closeButton" class="control-btn">
+            close
+          </button>
+
+          <button id="startButton" class="control-btn primary">
+            start
+          </button>
+
+          <button id="stopButton" class="control-btn danger hidden">
+            stop
+          </button>
+
+          <button id="reloadButton" class="control-btn hidden">
+            reload
+          </button>
+        </div>
+
+        <div class="controls-right">
+          <h4>Повідомлення</h4>
+          <ul id="messagesList"></ul>
+        </div>
+      </div>
+
+      <!-- Область анімації anim -->
+      <div id="anim" class="anim">
+        <div id="circle" class="circle"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Блок 6 -->
+  <footer class="block block6">
+    <p>© 2025 Веб-сайт Варіант 11</p>
+    <h2>Driven by Passion, Defined by Porsche.</h2>
+  </footer>
+</div>
+
+<!-- Підключення зовнішнього скрипта -->
+<script src="script.js"></script>
+</body>
+</html>

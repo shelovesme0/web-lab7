@@ -1,0 +1,274 @@
+/* ====== Загальна сітка ====== */
+.container {
+  display: grid;
+  grid-template-areas:
+    "block1 block1 block2"
+    "block3 block4 block2"
+    "block3 block5 block2"
+    "block6 block6 block6";
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 5px;
+  min-height: 100vh;
+}
+
+.block {
+  border: 1px solid #000;
+  padding: 10px;
+  background-color: white;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+/* ====== Блоки ====== */
+.block1 {
+  grid-area: block1;
+  background-color: #cce0f5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.block2 {
+  grid-area: block2;
+  background-color: #e6f0da;
+}
+
+.block3 {
+  grid-area: block3;
+  background-color: #fde6d5;
+}
+
+.block4 {
+  grid-area: block4;
+  background-color: #fde6d5;
+}
+
+.block5 {
+  grid-area: block5;
+  background-color: #fff;
+  position: relative;
+}
+
+.block6 {
+  grid-area: block6;
+  background-color: #cce0f5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Заголовки */
+.block1 h2, .block6 h2 {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid #000;
+  border-radius: 0;
+  background-color: #fff;
+  text-align: center;
+}
+
+.block1 h2,
+.block1 p {
+  margin: 0;
+}
+
+.block1 p {
+  font-size: 1.2em;
+}
+
+/* Меню */
+.block2 ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.block2 li {
+  margin: 8px 0;
+}
+
+.block2 a {
+  text-decoration: none;
+  color: #004080;
+  font-weight: bold;
+}
+
+.block2 a:hover {
+  color: #ff6600;
+}
+
+/* Зображення */
+img {
+  max-width: 100%;
+  border-radius: 5px;
+  height: auto;
+}
+
+/* ====== Кнопки керування ====== */
+.control-btn {
+  padding: 6px 14px;
+  margin: 4px 0;
+  border: 1px solid #333;
+  background-color: #f3f3f3;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.control-btn.primary {
+  background-color: #4caf50;
+  color: #fff;
+  border-color: #3c8f40;
+}
+
+.control-btn.danger {
+  background-color: #f44336;
+  color: #fff;
+  border-color: #c62828;
+}
+
+.control-btn:hover {
+  filter: brightness(0.9);
+}
+
+/* ====== Робоча область work / anim / controls ====== */
+.hidden {
+  display: none !important;
+}
+
+/* WORK – ширина як у завданні, висота АВТО (росте разом із повідомленнями) */
+.work {
+  position: relative;
+  width: calc(70vw + 10px);   /* W(70%) + 10px */
+  margin: 0 auto;
+  border: 1px dashed #444;
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* Верхня зона з кнопками та повідомленнями.
+   Висота НЕ фіксована – росте разом із UL. */
+.controls {
+  position: relative;
+  z-index: 2;                 /* завжди поверх anim і круга */
+  padding: 5px 10px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+/* Ліва колонка з кнопками */
+.controls-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Права колонка з усіма повідомленнями – росте вниз */
+.controls-right {
+  flex: 1;
+  margin-left: 15px;
+}
+
+.controls-right h4 {
+  margin: 0 0 4px;
+  font-size: 0.8rem;
+}
+
+/* ВСІ повідомлення видно, без обрізання та скролу */
+.controls-right ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.8rem;
+  line-height: 1.2;
+  list-style-type: disc;
+}
+
+/* ANIM – фіксований розмір, як у завданні:
+   W(70%), H(90%), притиснутий донизу work */
+.anim {
+  position: relative;
+  z-index: 1;                 /* під controls */
+  width: 70vw;                /* W(70%) */
+  height: 90vh;               /* H(90%) */
+
+  margin-top: 10px;           /* невеликий відступ від controls */
+  margin-left: auto;
+  margin-right: auto;
+
+  border: 5px solid orange;
+  box-sizing: border-box;
+
+  background-image: url("texture32.jpg");
+  background-repeat: repeat;
+  background-size: 32px 32px;
+}
+
+/* Коло всередині anim – теж під controls */
+.circle {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #00aa00;
+  z-index: 1;
+}
+
+
+/* ====== Таблиця логів у блоці 3 ====== */
+.log-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.log-table th,
+.log-table td {
+  border: 1px solid #333;
+  padding: 4px 6px;
+  vertical-align: top;
+}
+
+.log-table th {
+  background-color: #ffe5c4;
+}
+
+/* ====== Адаптивність ====== */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "block1"
+      "block2"
+      "block3"
+      "block4"
+      "block5"
+      "block6";
+    min-height: auto;
+  }
+
+  .block1, .block6 {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .block1 h2, .block6 h2 {
+    display: block;
+  }
+
+  .controls {
+    flex-direction: column;
+  }
+
+  .controls-right {
+    margin-left: 0;
+    margin-top: 6px;
+  }
+}
